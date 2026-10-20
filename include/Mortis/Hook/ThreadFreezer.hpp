@@ -48,7 +48,10 @@ private:
     using HandleType = PlatformDetail::NativeThreadHandle;
     std::vector<HandleType> handles_;
 
+#ifdef MORTIS_OS_LINUX
+    /// Signal number used for signal-based thread freezing (Linux only).
     int freezeSig_ = 0;
+#endif
 };
 
 } // namespace Mortis::HookEngine
